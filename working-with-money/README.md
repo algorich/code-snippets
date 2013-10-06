@@ -15,6 +15,11 @@ composed_of :price_money,
   class_name: 'Money',
   mapping: %w(price amount),
   converter: :to_i
+
+# if you want to return 0 instead of nil
+def price
+  @price || 0
+end
 ```
 
 See the [Rails doc](http://goo.gl/mMqnx) for more info about `composed_of` method.
@@ -39,5 +44,13 @@ On your form use the `price_money` instead_of `price`. With twitter bootstrap an
 Use the [maskMoney](http://plentz.github.com/jquery-maskmoney) plugin for jQuery.
 
 ``` javascript
-$('.money').maskMoney({ thousands: '.', decimal: ',' });
+$(function () {
+    var $money_inputs = $('.money');
+    $money_inputs.maskMoney({ allowZero: true, thousands: '.', decimal: ',' });
+    $money_inputs.maskMoney('mask'); // apply the mask for already filled inputs
+});
 ```
+
+## Step 6
+
+Remember to add i18n for `price_money` attribute and add it to the permitted params on controller.
