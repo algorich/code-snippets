@@ -27,7 +27,7 @@ Copy the *money.rb* file to the *lib* directory.
 
 On your form use the `price_money` instead_of `price`. With twitter bootstrap and slim:
 
-``` ruby-slim
+``` rubyslim
 = f.input :price_money do
   .input-group
     span.input-group-addon R$
