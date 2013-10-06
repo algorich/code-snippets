@@ -4,7 +4,7 @@ For example, we have a model with a `price` attribute.
 
 ## Step 1
 
-The price database column must be an Integer.
+The `price` database column **must be an integer**.
 
 ## Step 2
 
@@ -17,7 +17,7 @@ composed_of :price_money,
   converter: :to_i
 ```
 
-See the [Rails doc](http://goo.gl/mMqnx) for more info about `composed_of`.
+See the [Rails doc](http://goo.gl/mMqnx) for more info about `composed_of` method.
 
 ## Step 3
 
@@ -25,10 +25,9 @@ Copy the *money.rb* file to the *lib* directory.
 
 ## Step 4
 
-On your form use the `price_money` instead_of `price`. With twitter bootstrap
-and slim:
+On your form use the `price_money` instead_of `price`. With twitter bootstrap and slim:
 
-``` slim
+``` ruby-slim
 = f.input :price_money do
   .input-group
     span.input-group-addon R$
@@ -37,9 +36,8 @@ and slim:
 
 ## Step 5
 
-Use the [maskMoney](http://plentz.github.com/jquery-maskmoney) plugin for
-jQuery.
+Use the [maskMoney](http://plentz.github.com/jquery-maskmoney) plugin for jQuery.
 
 ``` javascript
-$('.money').maskMoney({ thousands:'.', decimal:',' });
+$('.money').maskMoney({ thousands: '.', decimal: ',' });
 ```
