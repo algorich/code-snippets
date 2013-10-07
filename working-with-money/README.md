@@ -18,7 +18,7 @@ composed_of :price_money,
 
 # if you want to return 0 instead of nil
 def price
-  @price || 0
+  read_attribute(:price) || 0
 end
 ```
 
