@@ -54,3 +54,19 @@ $(function () {
 ## Step 6
 
 Remember to add i18n for `price_money` attribute and add it to the permitted params on controller.
+
+## Step 7
+
+The specs:
+
+``` ruby
+it 'price_money' do
+  model = create :model
+
+  model.price_money = '743,40'
+  expect(model.price).to eq(74340)
+
+  model.update_attribute(:price_money, '1.543,21')
+  expect(model.price).to eq(154321)
+end
+```
