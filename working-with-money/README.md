@@ -16,9 +16,12 @@ composed_of :price_money,
   mapping: %w(price amount),
   converter: :to_i
 
-# if you want to return 0 instead of nil
-def price
+def price_in_cents
   read_attribute(:price) || 0
+end
+
+def price
+  price_in_cents / 100.0
 end
 ```
 
