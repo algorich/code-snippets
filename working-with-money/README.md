@@ -14,7 +14,7 @@ Add this to the model:
 composed_of :price_money,
   class_name: 'Money',
   mapping: %w(price amount),
-  converter: :to_i
+  converter: :from_s
 
 def price_in_cents
   read_attribute(:price) || 0
