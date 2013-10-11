@@ -86,7 +86,7 @@ Copy the *number_to_currency_js.rb* to the *app/helpers* directory, and the *num
 
 ## Step 2
 
-Add this to the view where the javascript perform some action, or in the layout:
+Add this to the view where the javascript will perform some action, or to the layout:
 
 ``` erb
 <%= number_to_currency_js %>
