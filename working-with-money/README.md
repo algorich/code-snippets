@@ -89,8 +89,13 @@ Copy the *number_to_currency_js.rb* to the *app/helpers* directory, and the *num
 Add this to the view where the javascript perform some action, or in the layout:
 
 ``` erb
-<%# you can pass a :locale option %>
 <%= number_to_currency_js %>
+```
+
+The method accepts a `:locale` option:
+
+``` erb
+<%= number_to_currency_js({locale: :en}) %>
 ```
 
 ## Step 3
