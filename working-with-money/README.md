@@ -2,11 +2,13 @@
 
 For example, we have a model with a `price` attribute.
 
-## Step 1
+## Creating the attribute and using in the form
+
+### Step 1
 
 The `price` database column **must be an integer**.
 
-## Step 2
+### Step 2
 
 Add this to the model:
 
@@ -27,11 +29,11 @@ end
 
 See the [Rails doc](http://goo.gl/mMqnx) for more info about `composed_of` method.
 
-## Step 3
+### Step 3
 
 Copy the *money.rb* file to the *lib* directory.
 
-## Step 4
+### Step 4
 
 On your form use the `price_money` instead_of `price`. With twitter bootstrap and slim:
 
@@ -42,7 +44,7 @@ On your form use the `price_money` instead_of `price`. With twitter bootstrap an
     = f.input_field :price_money, as: :string, class: :money
 ```
 
-## Step 5
+### Step 5
 
 Use the [maskMoney](http://plentz.github.com/jquery-maskmoney) plugin for jQuery.
 
@@ -54,11 +56,11 @@ $(function () {
 });
 ```
 
-## Step 6
+### Step 6
 
 Remember to add i18n for `price_money` attribute and add it to the permitted params on controller.
 
-## Step 7
+### Step 7
 
 The specs:
 
@@ -72,4 +74,34 @@ it 'price_money' do
   model.update_attribute(:price_money, '1.543,21')
   expect(model.price).to eq(154321)
 end
+```
+
+## Using the number_to_currency method on javascript
+
+When you want to show the price in the view, you use the helper `number_to_currency` method. But when you have to change the price dinamicaly in the view (i.e. with javascript), you will use this:
+
+## Step 1
+
+Copy the *number_to_currency_js.rb* to the *app/helpers* directory, and the *number_to_currency_js.js* to the *app/assets/javascripts* directory.
+
+## Step 2
+
+Add this to the view where the javascript perform some action, or in the layout:
+
+``` erb
+<%# you can pass a :locale option %>
+<%= number_to_currency_js %>
+```
+
+## Step 3
+
+Use the javascript method:
+
+``` javascript
+// considering the pt-BR locale, all of the calls will return 'R$ 1.254,08'
+numberToCurrency(125408)
+numberToCurrency(1254.08)
+numberToCurrency('1254.08')
+numberToCurrency('125408')
+numberToCurrency('R$ 1.254,08')
 ```
