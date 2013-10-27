@@ -102,6 +102,21 @@ config.assets.precompile += %w( jquery.ui.addresspicker.js )
 
 ## Step 8
 
+Test it using capybara and poltergeist:
+
+```
+scenario 'add address', js: true do
+  find('#addresspicker').set 'Campos dos Goytacazes'
+  page.execute_script("$('#addresspicker').trigger('keydown')")
+  find('li.ui-menu-item a').click
+
+  expect(find('#state', visible: false).value).to eq('Rio de Janeiro')
+  expect(find('#city', visible: false).value).to eq('Campos dos Goytacazes')
+end
+```
+
+## Step 9
+
 For more information about the fields and more, see
 [jquery addresspicker](https://github.com/sgruhier/jquery-addresspicker)
 documentation.
