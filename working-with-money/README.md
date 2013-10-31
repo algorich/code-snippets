@@ -31,7 +31,13 @@ See the [Rails doc](http://goo.gl/mMqnx) for more info about `composed_of` metho
 
 ### Step 3
 
-Copy the *money.rb* file to the *lib* directory.
+Copy the *money.rb* file to the *lib* directory and add this directory to the
+autoload path at *config/application.rb*:
+
+``` ruby
+config.autoload_paths += %W(#{config.root}/lib)
+```
+
 
 ### Step 4
 
