@@ -10,7 +10,7 @@ end
 namespace :deploy do
   desc 'Install everything into the server'
   task :install do
-    run "#{sudo} apt-get -y install git-core python-software-properties"
+    run "#{sudo} apt-get -y install git-core python-software-properties vim htop"
   end
 
   desc 'Run database migrations'

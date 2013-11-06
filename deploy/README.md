@@ -28,13 +28,6 @@ cd ~/.ssh
 ssh-keygen -t rsa -C '<me@mail.com>'
 ```
 
-### Update the server
-
-``` bash
-apt-get -y update
-apt-get -y upgrade
-```
-
 ### Set the locale
 
 If you have some locale error like:
@@ -48,6 +41,13 @@ Run:
 ``` bash
 echo "pt_BR.UTF-8 UTF-8" >> /var/lib/locales/supported.d/local
 dpkg-reconfigure locales
+```
+
+### Update the server
+
+``` bash
+apt-get -y update
+apt-get -y upgrade
 ```
 
 ### Add the deploy user

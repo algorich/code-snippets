@@ -7,7 +7,7 @@ set_default(:postgresql_pid) { '/var/run/postgresql/9.2-main.pid' }
 namespace :postgresql do
   desc 'Install the latest stable release of PostgreSQL.'
   task :install, roles: :db, only: {primary: true} do
-    run "#{sudo} add-apt-repository ppa:pitti/postgresql"
+    run "#{sudo} add-apt-repository -y ppa:pitti/postgresql"
     run "#{sudo} apt-get -y update"
     run "#{sudo} apt-get -y install postgresql libpq-dev"
   end

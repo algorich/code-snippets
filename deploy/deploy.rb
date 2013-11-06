@@ -17,11 +17,6 @@ load 'config/recipes/fail2ban'
 load 'config/recipes/info' # this should be the last recipe to be loaded
 
 set :stages, %w(production staging)
-set :default_stage, 'staging'
-
-# Depend of stage
-# set :rails_env, 'staging'
-# server 'dev.pipples.com', :web, :app, :db, primary: true
 
 set :application, 'pipples'
 set :user, 'deploy'
@@ -31,8 +26,6 @@ set :use_sudo, false
 
 set :scm, 'git'
 set :repository, "git@gitlab.com:algorich/#{application}.git"
-# Depend of stage
-# set :branch, 'develop'
 
 set :maintenance_template_path, File.expand_path('../recipes/templates/maintenance.html.erb', __FILE__)
 

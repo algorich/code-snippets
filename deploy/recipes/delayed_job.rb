@@ -1,7 +1,10 @@
 require 'delayed/recipes'
 
 set_default(:delayed_job_pid_file) { "#{current_path}/tmp/pids/delayed_job.pid" }
-set_default(:delayed_job_command) { "RAILS_ENV=#{rails_env} #{current_path}/script/delayed_job" }
+set_default(:delayed_job_command) { 'bin/delayed_job' }
+
+# http://migre.me/gyN2k
+set_default(:delayed_job_full_command) { "/bin/su - deploy -c 'cd #{current_path}; RAILS_ENV=#{rails_env} #{delayed_job_command}'" }
 
 after 'deploy:stop',    'delayed_job:stop'
 after 'deploy:start',   'delayed_job:start'
