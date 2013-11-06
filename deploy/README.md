@@ -120,14 +120,8 @@ cap <environment> deploy:cold
 ### If need to send mail
 
 ``` bash
-sudo apt-get install telnet postfix
+sudo apt-get install sendmail
 ```
-
-Use this configurations:
-
-- Mail Configuration: Internet Site
-- System Mail Name: (the suggested one)
-
 
 ### Last details
 
