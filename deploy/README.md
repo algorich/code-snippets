@@ -77,6 +77,8 @@ ssh-copy-id -i ~/.ssh/id_rsa_<project>.pub deploy@<server>
 
 ### Permit ssh to gitlab
 
+Logged in as deploy user, run:
+
 ``` bash
 ssh git@gitlab.com
 ```
