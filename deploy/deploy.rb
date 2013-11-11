@@ -14,6 +14,7 @@ load 'config/recipes/delayed_job'
 load 'config/recipes/monit'
 load 'config/recipes/ufw'
 load 'config/recipes/fail2ban'
+load 'config/recipes/project_dependencies'
 load 'config/recipes/info' # this should be the last recipe to be loaded
 
 set :stages, %w(production staging)

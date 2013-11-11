@@ -25,6 +25,11 @@ namespace :info do
 
       Run `sudo service fail2ban restart`
 
+      4) Ajust the nginx config
+
+      If you have a www redirect or will use https, uncomment the pertinent
+      lines nginx congif file.
+
 
       (press any key to continue)})
   end

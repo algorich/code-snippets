@@ -39,15 +39,13 @@ If you have some locale error like:
 Run:
 
 ``` bash
-echo "pt_BR.UTF-8 UTF-8" >> /var/lib/locales/supported.d/local
-dpkg-reconfigure locales
+echo "pt_BR.UTF-8 UTF-8" >> /var/lib/locales/supported.d/local && dpkg-reconfigure locales
 ```
 
 ### Update the server
 
 ``` bash
-apt-get -y update
-apt-get -y upgrade
+apt-get -y update && apt-get -y upgrade
 ```
 
 ### Add the deploy user
@@ -101,6 +99,10 @@ Walk thown all capistrano files and ajust the configs. Remember to choose a
 database (myqls or postgresql), removing the comment on deploy.rb file.
 
 
+### Project dependencies
+
+Ajust the recipe project_dependencies for your project needs
+
 ### Install
 
 ``` bash
@@ -125,6 +127,6 @@ cap <environment> deploy:cold
 sudo apt-get install sendmail
 ```
 
-### Last details
+### Finally
 
 After that, just run `cap deploy`.
