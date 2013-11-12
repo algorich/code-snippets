@@ -12,17 +12,17 @@
 
 5. Follow this steps https://www.startssl.com/?app=42
 
-6. scp <project>.decrypted.key \<user>@\<host>:/etc/nginx/ssl.key
+6. `scp <project>.decrypted.key \<user>@\<host>:/etc/nginx/ssl.key`
 
-7. scp ssl.unified.crt \<user>@\<host>:/etc/nginx
+7. `scp ssl.unified.crt \<user>@\<host>:/etc/nginx`
 
 8. login on the server and run
 
-  chmod 600 /etc/nginx/ssl.key
+  `chmod 600 /etc/nginx/ssl.key`
 
-9. cat ssl.key ssl.unified.crt > server.pem
+9. `cat ssl.key ssl.unified.crt > server.pem`
 
-10. chmod 0600 /etc/nginx/server.pem
+10. `chmod 0600 /etc/nginx/server.pem`
 
 11. On staging and production environment, uncomment the line `config.force_ssl = true`
 
