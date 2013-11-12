@@ -16,14 +16,14 @@
 
 7. `scp ssl.unified.crt <user>@<host>:/etc/nginx`
 
-8. login on the server and run
+8. login on the server
 
-  `chmod 600 /etc/nginx/ssl.key`
+9. `chmod 600 /etc/nginx/ssl.key`
 
-9. `cat ssl.key ssl.unified.crt > server.pem`
+10. `cat ssl.key ssl.unified.crt > server.pem`
 
-10. `chmod 0600 /etc/nginx/server.pem`
+11. `chmod 0600 /etc/nginx/server.pem`
 
-11. On staging and production environment, uncomment the line `config.force_ssl = true`
+12. On staging and production environment, uncomment the line `config.force_ssl = true`
 
-12. Monit and Nginx on deploy are already configured to use ssl =)
+13. Monit and Nginx on deploy are already configured to use ssl =)
