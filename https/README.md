@@ -12,9 +12,9 @@
 
 5. Follow this steps https://www.startssl.com/?app=42
 
-6. scp <project>.decrypted.key <user>@<host>:/etc/nginx/ssl.key
+6. scp <project>.decrypted.key \<user>@\<host>:/etc/nginx/ssl.key
 
-7. scp ssl.unified.crt <user>@<host>:/etc/nginx
+7. scp ssl.unified.crt \<user>@\<host>:/etc/nginx
 
 8. login on the server and run
 
