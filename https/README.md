@@ -1,7 +1,5 @@
 # Https
 
-## Create a ssl certificate
-
 1. Go to https://www.startssl.com
 
 2. Create an account
