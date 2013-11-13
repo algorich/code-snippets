@@ -75,22 +75,22 @@ And the jquery ui css on *application.css*
 
 Add a style for your map. **The `widh` and `height` are required!**.
 
-  ``` css
-  /*
-  ** Address picker
-  */
+``` css
+/*
+** Address picker
+*/
 
-  #adresspicker-map {
-    /* required */
-    width: 300px;
-    height: 300px;
+#adresspicker-map {
+  /* required */
+  width: 300px;
+  height: 300px;
 
-    /* extra */
-    border: 1px solid #DDD;
-    margin: 10px 0 10px 0;
-    -webkit-box-shadow: #AAA 0px 0px 15px;
-  }
-  ```
+  /* extra */
+  border: 1px solid #DDD;
+  margin: 10px 0 10px 0;
+  -webkit-box-shadow: #AAA 0px 0px 15px;
+}
+```
 
 
 ## Step 8
