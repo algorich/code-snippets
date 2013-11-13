@@ -47,7 +47,7 @@ Add the fields to the form. The address is required and the `data-lat` and
 
 ## Step 5
 
-Copy the *addresspicker.js* to your *app/assets/javascripts* directory and require it on *application.js* (only if you are not using "require tree"). Remember to ajust for your use case. For more info, see the [jquery addresspicker documentation](https://github.com/sgruhier/jquery-addresspicker)
+Copy the *addresspicker.js* to your *app/assets/javascripts* directory and require it on *application.js* (only if you are not using "require tree"). Remember to ajust for your use case. For more info, see the [jquery addresspicker documentation](https://github.com/sgruhier/jquery-addresspicker).
 
 You should add the `jquery-ui-rails` to your *Gemfile*
 
