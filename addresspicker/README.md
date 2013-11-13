@@ -8,8 +8,7 @@ Get [jquery addresspicker](https://github.com/sgruhier/jquery-addresspicker).
 
 ## Step 2
 
-Add this `yield` lines to include javascripts before and after the
-application.js.
+Add this `yield` lines to include javascripts before and after the application.js.
 
 ```
 = yield :javascripts_before_application
@@ -30,8 +29,7 @@ On the view that you will use the addresspicker, add this:
 
 ## Step 4
 
-Add the fields to the form. The address is required and the `data-lat` and
-`data-lng` are the center of the map. The other fields you add as you wish.
+Add the fields to the form. The address is required and the `data-lat` and `data-lng` are the center of the map. The other fields you add as you wish.
 
 ```
 = f.input :address, as: :string,\
@@ -97,8 +95,7 @@ Add a style for your map. **The `widh` and `height` are required!**.
 
 ## Step 8
 
-Add the *jquery.ui.addresspicker.js* to the precompile additional assets at
-*config/enviroments/production.rb* (and staging if it applies):
+Add the *jquery.ui.addresspicker.js* to the precompile additional assets at *config/enviroments/production.rb* (and staging if it applies):
 
 ``` ruby
 config.assets.precompile += %w( jquery.ui.addresspicker.js )
@@ -122,6 +119,4 @@ end
 
 ## Step 10
 
-For more information about the fields and more, see
-[jquery addresspicker](https://github.com/sgruhier/jquery-addresspicker)
-documentation.
+For more information about the fields and more, see [jquery addresspicker](https://github.com/sgruhier/jquery-addresspicker) documentation.
