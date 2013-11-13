@@ -49,7 +49,10 @@ Add the fields to the form. The address is required and the `data-lat` and
 
 Copy the *addresspicker.js* to your *app/assets/javascripts* directory and require it on *application.js* (only if you are not using "require tree"). Remember to ajust for your use case. For more info, see the [jquery addresspicker documentation](https://github.com/sgruhier/jquery-addresspicker).
 
-You should add the `jquery-ui-rails` to your *Gemfile*
+
+## Step 6
+
+You must add the `jquery-ui-rails` to your *Gemfile*
 
 ``` ruby
 gem 'jquery-ui-rails'
@@ -70,7 +73,7 @@ And the jquery ui css on *application.css*
 **= require jquery.ui.autocomplete
 ```
 
-## Step 6
+## Step 7
 
 Add a style for your map. **The `widh` and `height` are required!**.
 
@@ -92,7 +95,7 @@ Add a style for your map. **The `widh` and `height` are required!**.
   ```
 
 
-## Step 7
+## Step 8
 
 Add the *jquery.ui.addresspicker.js* to the precompile additional assets at
 *config/enviroments/production.rb* (and staging if it applies):
@@ -102,7 +105,7 @@ config.assets.precompile += %w( jquery.ui.addresspicker.js )
 ```
 
 
-## Step 8
+## Step 9
 
 Test it using capybara and poltergeist:
 
@@ -117,7 +120,7 @@ scenario 'add address', js: true do
 end
 ```
 
-## Step 9
+## Step 10
 
 For more information about the fields and more, see
 [jquery addresspicker](https://github.com/sgruhier/jquery-addresspicker)
