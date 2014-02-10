@@ -3,7 +3,7 @@ class ContactController < ApplicationController
     @contact_form = Contact.new
   end
 
-  def send
+  def send_it
     @contact_form = Contact.new(params[:contact])
 
     if @contact_form.save

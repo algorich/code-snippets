@@ -27,7 +27,7 @@ Paste on your routes:
 ``` ruby
   # contact
   get   '/contact' => 'contact#new',  as: :contact
-  post  '/contact' => 'contact#send', as: :send_contact
+  post  '/contact' => 'contact#send_it', as: :send_contact
 ```
 
 ## Create the contact form
