@@ -32,4 +32,17 @@ namespace :postgresql do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
   after 'deploy:finalize_update', 'postgresql:symlink'
+
+  desc 'Backup the database and download the script'
+  task :backup, :roles => :db do
+    filename = "#{Time.now.utc.strftime('%Y%m%d%H%M%S')}_#{postgresql_database}"
+    sql_filename = "#{filename}.sql"
+    tar_filename = "#{filename}.tar.gz"
+    run "cd #{current_path}; pg_dump -U#{postgresql_user} -h localhost #{postgresql_database} -f #{sql_filename}" do |ch, stream, out|
+      ch.send_data "#{postgresql_password}\n" if out =~ /^Password:/
+      puts out
+    end
+    run "cd #{current_path}; tar -cvzpf #{tar_filename} #{sql_filename}"
+    get "#{current_path}/#{tar_filename}", "#{tar_filename}"
+  end
 end
