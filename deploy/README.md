@@ -105,7 +105,7 @@ Ajust the recipe project_dependencies for your project needs
 
 ### Install
 
-Before install, you must check if your new ssh-key is added.:
+Before install, you must check if your new ssh-key is added:
 
 ``` bash
 ssh-add -L
