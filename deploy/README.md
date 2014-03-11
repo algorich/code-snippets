@@ -48,7 +48,7 @@ echo "pt_BR.UTF-8 UTF-8" >> /var/lib/locales/supported.d/local && dpkg-reconfigu
 apt-get -y update && apt-get -y upgrade
 ```
 
-### Add the deploy user
+### Create staging environment
 
 Create the staging environment. Just run the command above and make the
 necessary modifications for staging environment:
