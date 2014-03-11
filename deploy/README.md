@@ -105,6 +105,20 @@ Ajust the recipe project_dependencies for your project needs
 
 ### Install
 
+Before install, you must check if your new ssh-key is added.:
+
+``` bash
+ssh-add -L
+```
+
+If you don't see your key, you can add typing the following command:
+
+``` bash
+ssh-add <path_to_key>
+```
+
+Then, you are able to install:
+
 ``` bash
 cap <environment> deploy:install
 ```
