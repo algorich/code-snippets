@@ -18,4 +18,18 @@ namespace :deploy do
     run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} db:migrate}
   end
   after 'postgresql:symlink', 'deploy:migrate'
+  
+  namespace :assets do
+    desc 'Run the precompile task locally and rsync with shared'
+    task :precompile, :roles => :web, :except => { :no_release => true } do
+      from = source.next_revision(current_revision)
+      if releases.length <= 1 || capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
+        %x{RAILS_ENV=#{rails_env} bundle exec rake assets:precompile}
+        %x{rsync --recursive --times --rsh=ssh --compress --human-readable --progress public/assets #{user}@#{server_name}:#{shared_path}}
+        %x{bundle exec rake assets:clobber}
+      else
+        logger.info 'Skipping asset pre-compilation because there were no asset changes'
+      end
+    end
+  end
 end
