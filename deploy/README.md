@@ -93,7 +93,11 @@ group :development do
 end
 ```
 
-Copy all files to *config* dir, except the *Capfile*, that should be copied to the rails root path.
+Run `bundle install` then run `capify .`.
+
+Uncomment the line `load 'deploy/assets'` on the `Cafile`. Then copy all files
+of this project to *config* dir, except the *Capfile*, that should be copied to
+the rails root path.
 
 Walk thown all capistrano files and ajust the configs. Remember to choose a
 database (myqls or postgresql), removing the comment on deploy.rb file.
