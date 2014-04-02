@@ -1,6 +1,6 @@
 # Deploy with capistrano
 
-This configurations depends on capistrano. It deploy to a staging and a
+These configurations depends on capistrano. It deploy to a staging and a
 production environment.
 
 ## Recomentadations
@@ -100,7 +100,7 @@ of this project to *config* dir, except the *Capfile*, that should be copied to
 the rails root path.
 
 Walk thown all capistrano files and ajust the configs. Remember to choose a
-database (myqls or postgresql), removing the comment on deploy.rb file.
+database (mysql or postgresql), removing the comment on deploy.rb file.
 
 
 ### Project dependencies
