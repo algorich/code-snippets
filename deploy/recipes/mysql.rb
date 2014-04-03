@@ -3,7 +3,7 @@ set_default(:mysql_version) { '5.1' }
 set_default(:mysql_user) { application } # max 16 chars
 set_default(:mysql_root_password) { Capistrano::CLI.password_prompt 'Mysql Root Password: ' }
 set_default(:mysql_app_password) { Capistrano::CLI.password_prompt 'Mysql App Password: ' }
-set_default(:mysql_database) { "#{application}_#{rails_env}" }
+set_default(:mysql_database) { "#{application.gsub('-', '_')}_#{rails_env}" }
 set_default(:mysql_pid) { '/var/run/mysqld/mysqld.pid' }
 set_default(:mysql_socket) { '/var/run/mysqld/mysqld.sock' }
 
@@ -13,7 +13,7 @@ namespace :mysql do
     # About this lines for set passwords http://askubuntu.com/a/79881
     run "echo mysql-server mysql-server/root_password password #{mysql_root_password} | #{sudo} debconf-set-selections"
     run "echo mysql-server mysql-server/root_password_again password #{mysql_root_password} | #{sudo} debconf-set-selections"
-    run "#{sudo} apt-get -y libmysqlclient-dev install mysql-server mysql-client"
+    run "#{sudo} apt-get install -y libmysqlclient-dev mysql-server mysql-client"
   end
   after 'deploy:install', 'mysql:install'
 
