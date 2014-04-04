@@ -18,8 +18,17 @@ namespace :deploy do
     run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} db:migrate}
   end
   after 'postgresql:symlink', 'deploy:migrate'
-  
+
+
+
   namespace :assets do
+
+    desc 'Remove the assets manifest'
+    task :remove_manifest, :roles => :web, :except => { :no_release => true } do
+      run %Q{cd #{latest_release} && rm public/assets/manifest-* }
+    end
+    before 'deploy:assets:update_asset_mtimes', 'deploy:assets:remove_manifest'
+
     desc 'Run the precompile task locally and rsync with shared'
     task :precompile, :roles => :web, :except => { :no_release => true } do
       from = source.next_revision(current_revision)
