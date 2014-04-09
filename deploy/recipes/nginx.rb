@@ -1,3 +1,5 @@
+set_default(:maintenance_path) { "#{shared_path}/system/maintenance.html" }
+
 namespace :nginx do
   desc "Install latest stable release of nginx"
   task :install, roles: :web do
@@ -22,7 +24,18 @@ namespace :nginx do
       run "#{sudo} service nginx #{command}"
     end
   end
-end
 
-# NOTE: I found it necessary to manually fix the init script as shown here
-# https://bugs.launchpad.net/nginx/+bug/1033856
+  namespace :maintenance do
+    desc 'Set maintenance page up'
+    task :up, roles: :app do
+      set :reason,    (ENV['reason']   || 'manutenção')
+      set :deadline,  (ENV['deadline'] || 'em breve')
+      template 'maintenance.html.erb', maintenance_path
+    end
+
+    desc 'Set maintenance page down'
+    task :down, roles: :app do
+      run %Q{rm #{maintenance_path}}
+    end
+  end
+end

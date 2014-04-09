@@ -28,9 +28,9 @@ set :use_sudo, false
 set :scm, 'git'
 set :repository, "git@gitlab.com:algorich/#{application}.git"
 
-set :maintenance_template_path, File.expand_path('../recipes/templates/maintenance.html.erb', __FILE__)
-
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
+
+set :project_name, 'Pipples'
 
 after 'deploy', 'deploy:cleanup' # keep only the last 5 releases

@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <meta charset="utf-8">
+
+    <title><%= project_name %></title>
+
     <style type="text/css">
-    html, body {
-      background-color: #4B7399;
-      font-family: Verdana, Helvetica, Arial;
-      font-size: 14px;
-    }
+      html, body {
+        background-color: gray;
+        font-family: Verdana, Helvetica, Arial;
+        font-size: 14px;
+      }
 
-    a {
-      color: #0000FF;
-      img { border: none; }
-    }
+      a {
+        color: #0000FF;
+        img { border: none; }
+      }
 
-    #container {
-      width: 80%;
-      margin: 0 auto;
-      background-color: #FFF;
-      padding: 20px 40px;
-      border: solid 1px black;
-      margin-top: 20px;
-    }
+      .container-wrapper {
+        width: 60%;
+        margin: 0 auto;
+        border: solid 3px darkgray;
+        margin-top: 20px;
+      }
+
+      .container {
+        background-color: #FFF;
+        padding: 20px 40px;
+        border: solid 3px lightgray;
+      }
+
+      .center { text-align: center; }
+
+      .signature { margin-top: 60px; }
     </style>
   </head>
   <body>
-    <div id="container">
-      <h1>The system is down for <%= reason ? reason : "maintenance" %></h1>
-      <p>It will be back <%= deadline ? deadline : "soon" %></p>
+    <div class="container-wrapper">
+    <div class="container">
+      <div class="center">
+        <h1>O sistema está fora do ar para <%= reason %></h1>
+        <p>Estaremos de volta <%= deadline %>.</p>
+      </div>
+
+      <p class="signature">
+        Obrigado pela compreensão,
+        <br />
+        <strong>Equipe <%= project_name %></strong>
+      </p>
+    </div>
     </div>
   </body>
 </html>
