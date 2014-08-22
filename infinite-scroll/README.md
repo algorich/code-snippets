@@ -26,6 +26,7 @@ end
 Your collection view iteration should look like this:
 
 ```slim
+// collection.html.slim
 #alg-content
   #alg-collection-list
     = render 'collection', collection: @collection
