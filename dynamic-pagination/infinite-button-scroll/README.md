@@ -1,21 +1,12 @@
 # infinite-button-scroll
 
-This snippet is used to generate an infinite scroll on the view.
-
-## Dependencies
-
-- [kaminari](https://github.com/amatsuda/kaminari)
-- [jQuery](http://jquery.com/)
-
-### Optional
-
-Those examples are using [slim templates](http://slim-lang.com/)
+This snippet is used to generate an infinite scroll using a button on the view.
 
 ## Step 1:
 
 In your controller action you should add the kaminari pagination method `page` in your collection, this method will show only 10 objects by default.
 
-```slim
+```ruby
 def index
   @collection = Collection.page(params[:page])
 end
@@ -43,7 +34,7 @@ Your collection view iteration should look like this:
 
 The `next_page_link` helper method:
 
-```slim
+```ruby
 def next_page_link(scope)
   url = action_path(params.merge(page: scope.next_page))
 
