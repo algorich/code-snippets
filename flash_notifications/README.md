@@ -4,7 +4,7 @@ This snippet is used to generate custom flash notifications.
 
 ## Step 1:
 
-Create a `notification_helper.rb` with the code above
+Create a `notification_helper.rb` with the code below
 
 ```ruby
 module NotificationHelper
