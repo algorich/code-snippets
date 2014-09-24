@@ -1,0 +1,11 @@
+= render 'moip'
+= simple_form_for :payment, as: :user, url: '#', html: { class: 'contact-form' } do |f|
+  = f.input :card_number, label: false, placeholder: 'Número do cartão'
+  = f.input :expiration_date, label: false, placeholder: 'Data'
+  = f.input :safe_code, label: false, placeholder: 'Código'
+  = f.input :owner_name, label: false, placeholder: 'Nome como consta no cartão'
+  = f.input :owner_cpf, label: false, placeholder: 'Cpf'
+  = f.input :owner_phone, label: false, placeholder: 'Telefone'
+  = f.input :owner_birthday, label: false, placeholder: 'Data de Nascimento'
+#moip-errors
+button#submit-payment Efetuar pagamento
