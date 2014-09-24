@@ -34,8 +34,7 @@ Implement checkout transparent with moip
   ``` ruby
   config.action_mailer.default_url_options = { host: "example.com" }
   ```
-  copy moip_configuration.rb to /config/initializers/
-
+  - copy moip_configuration.rb to /config/initializers/
   - edit the value yourApplicationName in line MyMoip.default_referer_url and fill MyMoip.sandbox_token with Token de acesso and MyMoip.sandbox_key with Chave de acesso
 
 ### Step 4
@@ -88,37 +87,36 @@ Implement checkout transparent with moip
   - copy the file moip_spec to app/spec/lib/
 
 
-Implement NASP
+##Implement NASP
 
-  Nasp is one of the means provided by MoIP for transaction tracking , it sends an automatic notification via an HTTP POST.
+Nasp is one of the means provided by MoIP for transaction tracking , it sends an automatic notification via an HTTP POST.
 
-  ### Step 1
+### Step 1
 
-  Create NASP route
-  
-  add the following line to your routes file
-  
-  ``` ruby
-  post '/moip/nasp/',  to: 'moip#nasp'
-  ```
+Create NASP route
 
-  ### Step 2
+add the following line to your routes file
 
-  Create moip Controller
+``` ruby
+post '/moip/nasp/',  to: 'moip#nasp'
+```
 
-  Copy the file moip_controller.rb to app/controllers/
+### Step 2
 
-  ### Step 3
+Create moip Controller
 
-  Create state machine
+Copy the file moip_controller.rb to app/controllers/
 
-  - copy payment_state_machine.rb to lib/
-  - copy payment_scopes.rb to lib/
-  
-  change after_transition in payment_state_machine.rb, to make the changes that occur when the payment is approved.
+### Step 3
 
-  ### Step 4
+Create state machine
 
-  Test
+- copy payment_state_machine.rb to lib/
+- copy payment_scopes.rb to lib/
+- change after_transition in payment_state_machine.rb, to make the changes that occur when the payment is approved.
 
-  copy the file moip_controller_spec to app/spec/controllers/
+### Step 4
+
+Test
+
+copy the file moip_controller_spec to app/spec/controllers/
