@@ -1,3 +1,5 @@
+# Configure the access keys and access tokens and YourApplicationName
+
 MyMoip.environment = Rails.env.production? ? 'production' : 'sandbox'
 MyMoip.logger = Rails.logger
 

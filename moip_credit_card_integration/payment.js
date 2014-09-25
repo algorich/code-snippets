@@ -1,3 +1,4 @@
+// Makes a ajax action get_transaction to sending card data
 $(function (){
   $('#submit-payment').on('click', function(){
     $('#submit-payment').prop('disabled', true);
@@ -11,6 +12,7 @@ $(function (){
   })
 })
 
+// Creates the data structure of payment as requested by MoIP
 function build_payment_object(){
   return {
     "Forma": "CartaoCredito",
@@ -29,10 +31,12 @@ function build_payment_object(){
   }
 }
 
+// Sends the data to the MoIP
 send_moip_payment = function(settings){ 
   MoipWidget(settings);
 }
 
+// Function that receives the return of MoIP when the transaction was successful
 function success_moip_request(data){
   $.ajax({
       url: "/moip_callback",
@@ -45,6 +49,7 @@ function success_moip_request(data){
     });
 }
 
+// function that receives the return of MoIP when the transaction was wrong
 function failure_moip_request(data){
   $('#submit-payment').prop('disabled', false);
   $('#moip-errors').html("")

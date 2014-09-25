@@ -3,10 +3,15 @@
 class Moip
   TIMEOUT = 20 #seconds
 
+  # The payment object should have a relationship with a user model that should have the necessary 
+  # fields to create a Moip Payer
+  
   def initialize(payment)
     @payment = payment
   end
 
+  # Creates a Moip Instruction object that contains payment data and payer data,
+  # makes a request to Moip that responds with status and token.
   def get_transaction  
     instruction_params = {
       id: @payment.token,
@@ -21,6 +26,7 @@ class Moip
     request
   end
 
+  # Creates and returns a Moip Payer object
   def build_payer
     user = @payment.user
 

@@ -1,3 +1,4 @@
 = javascript_include_tag "#{MyMoip.api_url}/transparente/MoipWidget-v2.js"
 
+/ this line creates a mandatory div with id MoipWidget, defines a function in your js as callback-method-error and other function in your js as callback-method-success. these functions are responsible to get the ajax callback that was done to MoIP to try make the payment. After the creation of payment MoIP will return a token to be used as the value of data-token.
 #MoipWidget callback-method-error="failure_moip_request" callback-method-success="success_moip_request" data-token=""

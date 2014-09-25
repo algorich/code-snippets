@@ -1,6 +1,7 @@
 module PaymentStateMachine
   extend ActiveSupport::Concern
 
+  # Moip Payment Status
   STATUSES = {
     # our own statuses
     not_started:            0,
@@ -76,21 +77,15 @@ module PaymentStateMachine
 
     state_machine :status, initial: STATUSES.fetch(:not_started) do
 
-      # after_failure do |enrollment, transition|
-      #   if transition.from != STATUS_ACTION.key(transition.event.to_s)
-      #     message = 'payment state machine error: payment %s: from %s to %s' %
-      #       [payment.id, STATUSES.key(transition.from), transition.event]
-      #     Rails.logger.info(message)
-      #     SystemMailer.delay.notify_general_error('Erro na transição de status', message)
-      #   end
-      # end
-
+      # Makes changes that occur when the payment is approved.
       after_transition on: COMPLETABLE_ENROLLMENT_ACTIONS do |payment|
         payment.wallet_transaction = WalletTransaction.create(
           kind: 'out', wallet: payment.associate.wallet, 
           description: 'Pagamento Anuidade', amount: payment.amount
           )
       end
+
+      # Acceptable state transitions
 
       event :start do
         transition [STATUSES.fetch(:payment_slip_impressed),

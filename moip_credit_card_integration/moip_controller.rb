@@ -1,5 +1,7 @@
 class MoipController < ApplicationController
   
+  # Receives Posts MoIP with changes in status of payments made
+  # and updates the payment status of our payment model.
   def nasp
     set_payment_and_nasp
 
@@ -31,11 +33,6 @@ class MoipController < ApplicationController
     nasp_paid_value = @nasp.paid_value.to_i
 
     if payment.amount == nasp_paid_value
-      begin
-        Moip.new(payment).force_update_payment_info!(@nasp.moip_code)
-      rescue => e
-      end
-
       payment.send(PaymentStateMachine::STATUS_ACTION.fetch(status))
     end
   end
