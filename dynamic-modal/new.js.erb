@@ -1,0 +1,8 @@
+var $modal = $('.modal');
+
+$modal.find('.modal-title').text('Novo atleta');
+
+$modal.find('.modal-body').
+  html("<%= escape_javascript(render 'person_fields' %>");
+
+$modal.modal('show');
